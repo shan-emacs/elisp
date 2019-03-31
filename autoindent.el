@@ -4,7 +4,7 @@
   (save-window-excursion
     (find-file file-name)
     (indent-region (point-min) (point-max))
-    (save-buffer "!")))
+    (write-region nil nil file-name)))
 
 
-(mapc 'indent-file (find-lisp-find-files "~/test" "\\.html$"))
+(mapc 'indent-file (find-lisp-find-files (elt argv 0) "\\.html$"))
